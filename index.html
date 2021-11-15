@@ -10,7 +10,7 @@
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 </head>
 <body>
-    <section class="container">
+    <section id="app" class="container">
         <header>
             <img src="https://www.boolean.careers/images/misc/logo.png" alt="Logo">
         </header>
@@ -18,14 +18,25 @@
             <div class="card">
                 <div class="card-body">
                   <div class="input-group mb-3">
-                    <input type="text" class="form-control" aria-label="Text input with dropdown button">
-                    <button type="button" class="btn btn-success">Add to List</button>
+                    <input type="text"
+                           placeholder='Nuovo to do' 
+                           v-model.trim='newTodo' 
+                           @keyuo.enter='addTodo'
+                           class="form-control"      
+                    >
+                    <button type="button" class="btn btn-success" @click="addTodo">Add to List</button>
                   </div>
+
                   <div class="card" style="width: 60%;" id="card-elements">
                     <ul class="list-group list-group-flush">
-                      <li class="list-group-item">An item</li>
-                      <li class="list-group-item">A second item</li>
-                      <li class="list-group-item">A third item</li>
+                      <li class="list-group-item" v-for='(todo, index) in todos'>
+                          <span :class="{completed: todo.completed}"
+                                @click="updateStatus(index)"
+                          >
+                              {{ todo.text }} 
+                          </span>
+                          
+                      </li>
                     </ul>
                   </div>
                 </div>

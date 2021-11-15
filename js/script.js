@@ -13,3 +13,56 @@ Predisporre un campo di input testuale e un pulsante “aggiungi”: cliccando s
 Bonus:
 1. Oltre al click sul pulsante, intercettare anche il tasto ENTER per aggiungere il todo alla lista.
 2. Cliccando sul testo del todo, invertire il valore della proprietà completed del todo corrispondente (se completed era uguale a false, impostare true e viceversa). */
+
+
+const app = new Vue({
+    el: '#app',
+    data: {
+        todos: [
+            {
+                text: 'Terminare web app',
+                completed: false,
+            },
+            {
+                text: 'Rifare il letto',
+                completed: false,
+            },
+            {
+                text: 'Terminare web app',
+                completed: false,
+            }
+        ],
+        newTodo: '',
+    },
+    methods: {
+        addTodo(){
+            if(this.newTodo !== ''){
+                console.log(this.newtodo);
+
+                this.todos.unshift({
+                    text: this.newTodo,
+                    completed: false,
+                });
+
+                this.newTodo = '';
+
+                console.log(this.$refs.todoInput);
+                this.$refs.todoInput.focus();
+            }
+        },
+
+        removeTodo(){
+            this.todos.splice(indexTodo, 1);
+        },
+
+        updateStatus(indexTodo){
+            console.log(indexTodo);
+
+            if(this.todos[indexTodo].completed){
+                this.todos[indexTodo].completed = false;
+            }else{
+                this.todos[indexTodo].completed = true;
+            }
+        }
+    }
+})

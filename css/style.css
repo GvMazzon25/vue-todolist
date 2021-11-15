@@ -1,0 +1,31 @@
+
+/*GENERALS*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body{
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+}
+ /*UTILITIES*/
+
+
+
+
+/*Body img*/
+body svg{
+    position: absolute;
+    bottom: 0;
+}
+
+/*Container Section*/
+.container{
+    width: 1170px;
+    height: 100%;
+    margin: 0, auto;
+}
